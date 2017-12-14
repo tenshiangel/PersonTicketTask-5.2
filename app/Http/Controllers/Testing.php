@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\person;
-use App\ticket;
-use App\flight;
+use App\Person;
+use App\Ticket;
+use App\Flight;
 
 class testing extends Controller
 {
@@ -17,29 +17,29 @@ class testing extends Controller
 
     /* This is for the basic task only */
     public function personHome(){
-        $person = person::all();
+        $person = Person::all();
         return view('pages.Person', compact('user_profile', 'person'));
     }
     public function ticketHome(){
-        $person = person::all();
-        $flight = flight::all();
-        $ticket = ticket::all();
+        $person = Person::all();
+        $flight = Flight::all();
+        $ticket = Ticket::all();
         return view('pages.Ticket', compact('user_profile', 'person', 'flight', 'ticket'));
     }
     public function flightHome(){
-        $flight = flight::all();
+        $flight = Flight::all();
         return view('pages.Flight', compact('user_profile', 'flight'));
     }
     public function airproofHome($id){
-        $person = person::all();
-        $specials = person::findorfail($id);
+        $person = Person::all();
+        $specials = Person::findorfail($id);
         $flight = flight::all();
-        $ticket = ticket::all();
+        $ticket = Ticket::all();
         return view('pages.AirProof', compact('user_profile', 'person', 'flight', 'ticket', 'specials', 'id'));
     }
     public function addFlight(Request $request){
 
-        $flight = new flight;
+        $flight = new Flight;
 
         $flight->flight_date = $request->input('date-time');
         $flight->destination = $request->input('desti');
@@ -50,7 +50,7 @@ class testing extends Controller
     public function addPerson(Request $request){
 
       
-        $person = new person;
+        $person = new Person;
 
         $person->first_name = $request->input('first-name');
         $person->last_name = $request->input('last-name');
@@ -70,7 +70,7 @@ class testing extends Controller
     }
     public function addTicket(Request $request){
 
-        $ticket = new ticket;
+        $ticket = new Ticket;
 
         $ticket->person_id = $request->input('person_id');
         $ticket->flight_id = $request->input('flight_id');

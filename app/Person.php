@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class person extends Model
+class Person extends Model
 {
     public function tickets()
     {

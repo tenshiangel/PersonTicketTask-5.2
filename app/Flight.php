@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class flight extends Model
+class Flight extends Model
 {
     public function tickets()
     {
