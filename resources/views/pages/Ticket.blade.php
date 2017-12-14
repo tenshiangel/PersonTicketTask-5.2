@@ -29,8 +29,10 @@
                 <a href="{{url('/')}}" style="color: black; float: right;"><input type="submit" name="option_1" value="Back"></a></div>
                 <div class="panel-body">
                 	<form action="{{url('airline/flights/addTicket')}}" method="post" enctype="multipart/form-data">
+
                         <input type="hidden" name="person_id" id="nameplate" value="1">
                         <input type="hidden" name="flight_id" id="flightplate" value="1">
+                        
                           <select onChange="myFunction1()" id="mySelect">
                             @foreach($person as $persons)
                               <option value="{{$persons->id}}">{{$persons->first_name.' '.$persons->last_name}}</option>
@@ -42,6 +44,7 @@
                               <option value="{{$flights->id}}">{{$flights->destination.' '.$flights->flight_date}}</option>
                             @endforeach
                           </select> 
+
                           <input type="hidden" name="_token" value="{{csrf_token()}}">
                           <input type="submit" name="submit" value="Book Ticket">
                     </form>

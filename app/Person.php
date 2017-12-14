@@ -11,3 +11,4 @@ class person extends Model
         return $this->hasMany('App\ticket', 'person_id');
     }
 }
+
