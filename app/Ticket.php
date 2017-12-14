@@ -8,11 +8,11 @@ class Ticket extends Model
 {
     public function people()
     {
-        return $this->belongsTo('App\person', 'id');
+        return $this->belongsTo('App\Person', 'id');
     }
 
     public function flights()
     {
-        return $this->belongsTo('App\flight', 'id');
+        return $this->belongsTo('App\Flight', 'id');
     }
 }

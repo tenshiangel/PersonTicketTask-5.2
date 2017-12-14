@@ -8,7 +8,7 @@ class Person extends Model
 {
     public function tickets()
     {
-        return $this->hasMany('App\ticket', 'person_id');
+        return $this->hasMany('App\Ticket', 'person_id');
     }
 }
 
